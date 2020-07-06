@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CloudForAllTest
+/CloudForAllTest.API/bin/Debug/netcoreapp3.1
+/CloudForAllTest.API/obj
+/CloudForAllTest.Domain/bin/Debug/netcoreapp3.1
+/CloudForAllTest.Domain/obj
+/CloudForAllTest.Repository/bin/Debug/netcoreapp3.1
+/CloudForAllTest.Repository/obj
+/CloudForAllTest.Service/bin/Debug/netcoreapp3.1
+/CloudForAllTest.Service/obj
