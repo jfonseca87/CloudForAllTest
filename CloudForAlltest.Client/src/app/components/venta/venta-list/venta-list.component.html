@@ -1,0 +1,33 @@
+<div class="pb-3 pt-3" *ngIf="formularioVisible">
+    <app-venta-form (refrescar)="mostrarFormulario(false)" (cancelar)="mostrarFormulario(false)"></app-venta-form>
+</div>
+<div class="pb-3 pt-3">
+    <button class="btn btn-primary" (click)="mostrarFormulario(true)"> Nueva Venta </button>
+</div>
+<div style="height: 500px;" *ngIf="facturas.length > 0; else noFacturas">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th> Factura No. </th>
+                <th> Producto </th>
+                <th> Valor Unitario </th>
+                <th> Cantidad </th>
+                <th> Total </th>
+            </tr>
+        </thead>
+        <thead>
+            <tr *ngFor="let factura of facturas">
+                <td>{{ factura.facturaId }}</td>
+                <td>{{ factura.nomProducto }}</td>
+                <td>{{ factura.valorProducto }}</td>
+                <td>{{ factura.cantidad }}</td>
+                <td>{{ factura.total }}</td>
+            </tr>
+        </thead>
+    </table>
+</div>
+<ng-template #noFacturas>
+    <div class="alert alert-danger" role="alert">
+        No existen ventas registradas.
+    </div>
+</ng-template>

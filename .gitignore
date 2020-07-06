@@ -11,3 +11,4 @@
 /CloudForAllTest.Repository/obj
 /CloudForAllTest.Service/bin/Debug/netcoreapp3.1
 /CloudForAllTest.Service/obj
+/CloudForAllTest.Client/node_modules

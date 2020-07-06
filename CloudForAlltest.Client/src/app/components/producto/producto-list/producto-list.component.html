@@ -1,0 +1,28 @@
+<div class="pb-3 pt-3" *ngIf="formularioVisible">
+    <app-producto-form [productoId]="productoId" (refrescar)="procesarRefresco()" (cancelar)="mostrarFormulario(false)">
+    </app-producto-form>
+</div>
+<div class="pb-3 pt-3">
+    <button class="btn btn-primary" (click)="mostrarFormulario(true)"> Nuevo Producto </button>
+</div>
+<div style="height: 500px;">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th> Producto </th>
+                <th> Valor Unitario </th>
+                <th></th>
+            </tr>
+        </thead>
+        <thead>
+            <tr *ngFor="let producto of productos">
+                <td>{{ producto.nomProducto }}</td>
+                <td>{{ producto.valorUnitario }}</td>
+                <td>
+                    <button class="btn btn-warning mr-2" (click)="editar(producto.productoId)">Editar</button>
+                    <button class="btn btn-danger" (click)="confirmaBorrado(producto.productoId)">Eliminar</button>
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>

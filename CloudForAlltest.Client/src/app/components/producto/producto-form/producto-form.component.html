@@ -1,0 +1,36 @@
+<div class="col-12 justi">
+    <div style="text-align: center;">
+        <form [formGroup]="productoForm">
+            <div class="row pt-5 justify-content-center">
+                <div class="form-group col-3">
+                    <input type="text" class="form-control" formControlName="nomProducto" placeholder="Producto">
+                    <div *ngIf="productoForm.get('nomProducto').touched && productoForm.get('nomProducto').invalid"
+                        style="color:red;">
+                        <div *ngIf="productoForm.get('nomProducto').errors.required">
+                            * Producto es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <input type="number" class="form-control" formControlName="valorUnitario"
+                        placeholder="Valor Unitario">
+                    <div class="text-left"
+                        *ngIf="productoForm.get('valorUnitario').touched && productoForm.get('valorUnitario').invalid"
+                        style="color:red">
+                        <div *ngIf="productoForm.get('valorUnitario').errors.required">
+                            * Valor Unitario es requerido.
+                        </div>
+                    </div>
+                    <div style="color: red;" *ngIf="productoForm.get('valorUnitario').touched && productoForm.get('valorUnitario').value == 0">
+                        * Valor Unitario debe ser mayor a 0.
+                    </div>
+                </div>
+            </div>
+            <div class="text-right col-10 pb-5">
+                <button class="btn btn-default mr-3" (click)="procesoCancelar()">Cancelar</button>
+                <button class="btn btn-success" [disabled]="!productoForm.valid"
+                    (click)="mantenimientoProducto()">{{ textoBoton }}</button>
+            </div>
+        </form>
+    </div>
+</div>

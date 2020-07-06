@@ -1,0 +1,31 @@
+<div class="col-12 justi">
+    <div style="text-align: center;">
+        <form [formGroup]="preventaForm">
+            <div class="row pt-5 justify-content-center">
+                <div class="form-group col-3">
+                    <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                    <div *ngIf="preventaForm.get('email').touched && preventaForm.get('email').invalid" style="color:red;">
+                        <div *ngIf="preventaForm.get('email').errors.required">
+                           * Correo es requerido.
+                        </div>
+                        <div *ngIf="preventaForm.get('email').errors.email">
+                           * Correo Electrónico con formato inválido.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <input type="text" class="form-control" formControlName="lugarDespacho" placeholder="Ciudad Despacho">
+                    <div class="text-left" *ngIf="preventaForm.get('lugarDespacho').touched && preventaForm.get('lugarDespacho').invalid"
+                        style="color:red">
+                        * Ciudad Despacho es requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="text-right col-10 pb-5">
+                <button class="btn btn-default mr-3" (click)="procesoCancelar()">Cancelar</button>
+                <button class="btn btn-success" [disabled]="!preventaForm.valid" (click)="mantenimientoPreventa()">{{ textoBoton }}</button>
+            </div>
+        </form>
+    </div>
+</div>
+

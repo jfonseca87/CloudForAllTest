@@ -1,0 +1,30 @@
+<div class="pb-3 pt-3" *ngIf="formularioVisible">
+    <app-preventa-form [preventaId]="preventaId" (refrescar)="procesarRefresco()" (cancelar)="mostrarFormulario(false)">
+    </app-preventa-form>
+</div>
+<div class="pb-3 pt-3">
+    <button class="btn btn-primary" (click)="mostrarFormulario(true)"> Nueva Preventa </button>
+</div>
+<div style="height: 500px;">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th> Email </th>
+                <th> Lugar Despacho </th>
+                <th> Fecha </th>
+                <th></th>
+            </tr>
+        </thead>
+        <thead>
+            <tr *ngFor="let preventa of preventas">
+                <td>{{ preventa.email }}</td>
+                <td>{{ preventa.lugarDespacho }}</td>
+                <td>{{ preventa.fechaPreventa }}</td>
+                <td>
+                    <button class="btn btn-warning mr-2" (click)="editar(preventa.preventaId)">Editar</button>
+                    <button class="btn btn-danger" (click)="confirmaBorrado(preventa.preventaId)">Eliminar</button>
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>
